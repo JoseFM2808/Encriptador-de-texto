@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --color-primario: #0A3871;
+    --color-secundario: #FFFFFF;
+    --color-terciario: #F3F5FC;
+    --color-cuaternario: #495057;
+    --color-quinario: #D8DFE8;
+
+    --fuente-primaria: "Inter", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-terciario);
+    font-family: var(--fuente-primaria);
+    padding: 2.5rem;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 5rem;
+}
+
+.desktop{
+    gap: 5rem;
+    width: 100%;
+    height: 100%;
+}
+
+.desktop_contenido{
+    margin-top: 1.5rem;
+    margin-left: 12.5rem;
+}
+
+.desktop_contenido_text-area {
+    font-family: var(--fuente-primaria);
+    font-size: 1.5rem;
+    font-weight: 400;
+    border: 2px solid var(--color-quinario);
+    border-radius: 1rem;
+    text-transform: lowercase;
+    background: none;
+    color: var(--color-primario);
+    padding: 2rem;
+    resize: none;
+    width: 100%;
+    height: 15rem;
+    margin-bottom: 1rem;
+}
+
+.desktop_contenido_text-area::placeholder {
+    color: var(--color-cuaternario);
+}
+
+
+.desktop_contenido_text-area:focus {
+    outline: none;
+}
+
+.desktop_informacion_texto {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--color-cuaternario);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.desktop_mensaje {
+    width: 30%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1.5rem;
+    background-color: var(--color-secundario);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.desktop_mensaje_informativo {
+    background-image: url("/Assets/Muñeco.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--color-primario);
+    width: 100%;
+    height: 15rem;
+    border: none;
+    resize: none;
+    margin-bottom: 1rem;
+    outline: none;
+    padding-top: 5rem;
+    padding-left: 1rem;
+    text-align: start;
+}
+
+
+.desktop_mensaje_informativo:focus {
+    outline: none;
+}
+
+.desktop_contenido_botones {
+    display: flex;
+    gap: 1rem;
+    padding-left: 0;
+    margin-top: 1.5rem;
+}
+
+.desktop_contenido_botones_encriptar,
+.desktop_contenido_botones_desencriptar {
+    border-radius: 1.5rem;
+    cursor: pointer;
+    height: 3.5rem;
+    width: 100%;
+    max-width: 15rem;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.desktop_contenido_botones_encriptar {
+    background-color: var(--color-primario);
+    border: none;
+    color: var(--color-secundario);
+}
+
+.desktop_contenido_botones_desencriptar {
+    background-color: var(--color-secundario);
+    border: 2px solid var(--color-primario);
+    color: var(--color-primario);
+}
+
+.desktop_contenido_botones_copiar {
+    border: 2px solid var(--color-primario);
+    border-radius: 1.5rem;
+    color: var(--color-primario);
+    cursor: pointer;
+    height: 3.5rem;
+    width: 21rem;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
