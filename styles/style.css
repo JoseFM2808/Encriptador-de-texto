@@ -20,7 +20,7 @@ body {
     background: var(--color-terciario);
     font-family: var(--fuente-primaria);
     padding: 2.5rem;
-    box-sizing: border-box;
+    height: 100%;
 }
 
 main {
@@ -28,22 +28,21 @@ main {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 100%;
-    gap: 5rem;
 }
 
-.desktop{
+.desktop {
     gap: 5rem;
+    width: 100%;
+}
+
+.desktop_contenido {
+    margin-left: 5%;
     width: 100%;
     height: 100%;
 }
 
-.desktop_contenido{
-    margin-top: 1.5rem;
-    margin-left: 12.5rem;
-}
-
 .desktop_contenido_text-area {
+    width: 100%;
     font-family: var(--fuente-primaria);
     font-size: 1.5rem;
     font-weight: 400;
@@ -52,17 +51,15 @@ main {
     text-transform: lowercase;
     background: none;
     color: var(--color-primario);
-    padding: 2rem;
+    padding: 1rem;
     resize: none;
-    width: 100%;
-    height: 15rem;
+    height: 30rem;
     margin-bottom: 1rem;
 }
 
 .desktop_contenido_text-area::placeholder {
     color: var(--color-cuaternario);
 }
-
 
 .desktop_contenido_text-area:focus {
     outline: none;
@@ -77,35 +74,84 @@ main {
 }
 
 .desktop_mensaje {
-    width: 30%;
+    width: 35%;
+    height: 100%;
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     border-radius: 1.5rem;
     background-color: var(--color-secundario);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.desktop_mensaje_informativo {
-    background-image: url("/Assets/Muñeco.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    color: var(--color-primario);
+#output-container {
     width: 100%;
-    height: 15rem;
+    text-align: center;
+    height: 100;
+}
+
+.desktop_mensaje_resultado {
+    display: none; /* Ocultar por defecto */
+    width: 100%;
+    height: 100%;
+    font-family: var(--fuente-primaria);
+    font-size: 1.5rem;
+    font-weight: 400;
     border: none;
     resize: none;
     margin-bottom: 1rem;
     outline: none;
-    padding-top: 5rem;
-    padding-left: 1rem;
+    padding: 1rem;
     text-align: start;
+    min-height: 10rem;
+    background: none;
+
 }
 
+.desktop_mensaje_imagen {
+    width: auto;
+    max-height: 15rem;
+    margin-bottom: 1rem;
+}
 
-.desktop_mensaje_informativo:focus {
-    outline: none;
+.desktop_mensaje-faltamensaje,
+.desktop_mensaje_faltatexto {
+    font-family: var(--fuente-primaria);
+    text-align: center;
+}
+
+.desktop_mensaje-faltamensaje {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.desktop_mensaje_faltatexto {
+    font-size: 1rem;
+    font-weight: 400;
+    padding-top: 1rem;
+}
+
+.desktop_mensaje_boton {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+#copy-button {
+    border: 2px solid var(--color-primario);
+    border-radius: 1.5rem;
+    color: var(--color-primario);
+    cursor: pointer;
+    height: 3.5rem;
+    width: 100%;
+    max-width: 15rem;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: none; /* Ocultar por defecto */
 }
 
 .desktop_contenido_botones {
@@ -139,15 +185,62 @@ main {
     color: var(--color-primario);
 }
 
-.desktop_contenido_botones_copiar {
-    border: 2px solid var(--color-primario);
-    border-radius: 1.5rem;
-    color: var(--color-primario);
-    cursor: pointer;
-    height: 3.5rem;
-    width: 21rem;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: 1.5rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
+@media (max-width: 768px) {
+    .desktop {
+        gap: 2.5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header_menu_logo{
+        margin-left: -5%;
+    }
+
+    .desktop_contenido, 
+    .desktop_mensaje {
+        padding-top: 2%;
+        margin: 0;
+        width: 100%;
+    }
+
+    .desktop_mensaje {
+        padding: 2%;
+        height: 100%;
+    }
+
+    .desktop_mensaje_imagen {
+        display: none;
+    }
+
+    .desktop_mensaje-faltamensaje,
+    .desktop_mensaje_faltatexto {
+        text-align: center;
+    }
+
+    #output-container {
+        background-image: none;
+        height: auto;
+        min-height: none;
+    }
+}
+
+@media (max-width: 375px) {
+    body{
+        padding: 1.5rem;
+    }
+
+    .desktop {
+        gap: 2.5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header_menu_logo{
+        margin-left: -12%;
+    }
+
+    .desktop_contenido_text-area {
+        height: 22rem;
+    }
+
 }
