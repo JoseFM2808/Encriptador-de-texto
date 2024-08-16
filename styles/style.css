@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-    --color-primario: #0A3871;
-    --color-secundario: #FFFFFF;
-    --color-terciario: #F3F5FC;
-    --color-cuaternario: #495057;
-    --color-quinario: #D8DFE8;
+    --color-primario: #1E3A5F;
+    --color-secundario: #F7F9FC;
+    --color-terciario: #E3E8F0;
+    --color-cuaternario: #6B7C93;
+    --color-quinario: #C0C8D1;
 
     --fuente-primaria: "Inter", sans-serif;
 }
