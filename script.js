@@ -1,19 +1,18 @@
 const textArea = document.querySelector(".desktop_contenido_text-area");
-const mensaje = document.getElementById("output-message");
+const mensajeResultado = document.getElementById("output-message");
 const copyButton = document.getElementById("copy-button");
-const mensajeInformativo = document.querySelector(".desktop_mensaje_informativo-mensaje");
-const textoInformativo = document.querySelector(".desktop_mensaje_informativo-texto");
-const imagenInformativa = document.querySelector(".desktop_mensaje_informativo_imagen");
+const faltamensaje = document.querySelector(".desktop_mensaje-faltamensaje");
+const faltatexto = document.querySelector(".desktop_mensaje_faltatexto");
+const imagenInformativa = document.querySelector(".desktop_mensaje_imagen");
 const outputContainer = document.getElementById('output-container');
 
 function btnEncriptar() {
     const textoEncriptado = encriptar(textArea.value);
-    mensaje.value = textoEncriptado;
-    mensaje.style.display = "block";
-    botonCopiar.style.display = "block";
+    mensajeResultado.textContent = textoEncriptado;
     actualizarElementos();
 }
 
+//Lógica de botón de encriptar
 function encriptar(stringEncriptada) {
     let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
     stringEncriptada = stringEncriptada.toLowerCase();
@@ -26,15 +25,13 @@ function encriptar(stringEncriptada) {
     return stringEncriptada;
 }
 
-
 function btnDesencriptar() {
     const textoDesencriptado = desencriptar(textArea.value);
-    mensaje.value = textoDesencriptado;
-    mensaje.style.display = "block";
-    botonCopiar.style.display = "block";
+    mensajeResultado.textContent = textoDesencriptado;
     actualizarElementos();
 }
 
+//Lógica de botón de desencriptar
 function desencriptar(stringDesencriptada) {
     let matrizCodigo = [["enter", "e"], ["imes", "i"], ["ai", "a"], ["ober", "o"], ["ufat", "u"]];
     stringDesencriptada = stringDesencriptada.toLowerCase();
@@ -50,31 +47,41 @@ function desencriptar(stringDesencriptada) {
 function copiarTexto() {
     const textoCopiado = mensajeResultado.textContent;
     navigator.clipboard.writeText(textoCopiado).then(() => {
-        alert("Texto copiado al portapapeles");
+        // Cambiar el texto y el estilo del botón
+        copyButton.textContent = "Copiado";
+        copyButton.style.backgroundColor = "var(--color-primario)"; // Color de borde como fondo
+        copyButton.style.color = "var(--color-secundario)"; // Texto en blanco
+        
+        // Restaurar el texto y estilo del botón después de unos segundos
+        setTimeout(() => {
+            copyButton.textContent = "Copiar";
+            copyButton.style.backgroundColor = "var(--color-secundario)";
+            copyButton.style.color = "var(--color-primario)";
+        }, 2000); // Cambia el valor a los segundos que desees
     }).catch(err => {
         console.error("Error al copiar el texto: ", err);
     });
 }
 
+
 function actualizarElementos() {
-    if (mensaje.value.trim() !== "") {
+
+    if (textArea.value.trim() !== "") {
         copyButton.style.display = "block";
-        mensajeInformativo.style.display = "none";
-        textoInformativo.style.display = "none";
-        imagenInformativa.style.display = "none";
-        outputContainer.style.display = 'block';
+        mensajeResultado.style.display = "block";
+        faltamensaje.style.display = "none";
+        faltatexto.style.display="none";
+        imagenInformativa.style.display="none";
+
     } else {
         copyButton.style.display = "none";
-        mensajeInformativo.style.display = "block";
-        textoInformativo.style.display = "block";
-        imagenInformativa.style.display = "block";
-        outputContainer.style.display = 'none';
-    }
-}
+        mensajeResultado.style.display = "none";
+        faltamensaje.style.display="block";
+        faltatexto.style.display="block";
+        imagenInformativa.style.display = "hidden"
 
-textArea.addEventListener("input", () => {
-    mensaje.value = "";
-    actualizarElementos();
-});
+    }
+   
+}
 
 actualizarElementos();

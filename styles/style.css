@@ -27,11 +27,10 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 .desktop {
-    gap: 5rem;
+    gap: 3.5rem;
     width: 100%;
 }
 
@@ -39,6 +38,7 @@ main {
     margin-left: 5%;
     width: 100%;
     height: 100%;
+    padding-top: 2.5%;
 }
 
 .desktop_contenido_text-area {
@@ -65,18 +65,25 @@ main {
     outline: none;
 }
 
+.desktop_contenido_informacion{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
 .desktop_informacion_texto {
     font-size: 0.75rem;
     font-weight: 400;
     color: var(--color-cuaternario);
     padding-left: 1rem;
-    margin-bottom: 1.5rem;
 }
 
 .desktop_mensaje {
-    width: 35%;
+    width: 40%;
     height: 100%;
-    padding: 2rem;
+    min-height: 38rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,13 +96,12 @@ main {
 #output-container {
     width: 100%;
     text-align: center;
-    height: 100;
+    height: 100%;
 }
 
 .desktop_mensaje_resultado {
-    display: none; /* Ocultar por defecto */
     width: 100%;
-    height: 100%;
+    height: 31rem;
     font-family: var(--fuente-primaria);
     font-size: 1.5rem;
     font-weight: 400;
@@ -103,7 +109,6 @@ main {
     resize: none;
     margin-bottom: 1rem;
     outline: none;
-    padding: 1rem;
     text-align: start;
     min-height: 10rem;
     background: none;
@@ -112,6 +117,7 @@ main {
 
 .desktop_mensaje_imagen {
     width: auto;
+    height: auto;
     max-height: 15rem;
     margin-bottom: 1rem;
 }
@@ -134,7 +140,6 @@ main {
 }
 
 .desktop_mensaje_boton {
-    margin-top: 1.5rem;
     display: flex;
     justify-content: center;
 }
@@ -143,15 +148,14 @@ main {
     border: 2px solid var(--color-primario);
     border-radius: 1.5rem;
     color: var(--color-primario);
+    background-color: var(--color-secundario);
     cursor: pointer;
     height: 3.5rem;
     width: 100%;
-    max-width: 15rem;
     font-size: 1rem;
     font-weight: bold;
-    margin-top: 1.5rem;
     transition: background-color 0.3s ease, color 0.3s ease;
-    display: none; /* Ocultar por defecto */
+    display: none;
 }
 
 .desktop_contenido_botones {
@@ -167,7 +171,6 @@ main {
     cursor: pointer;
     height: 3.5rem;
     width: 100%;
-    max-width: 15rem;
     font-size: 1rem;
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -180,7 +183,7 @@ main {
 }
 
 .desktop_contenido_botones_desencriptar {
-    background-color: var(--color-secundario);
+    background-color: var(--color-terciario);
     border: 2px solid var(--color-primario);
     color: var(--color-primario);
 }
@@ -203,9 +206,22 @@ main {
         width: 100%;
     }
 
+    .desktop_contenido_botones_encriptar,
+    .desktop_contenido_botones_desencriptar {
+        width: 100%;
+
+    }
+
+    .desktop_contenido_botones{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
     .desktop_mensaje {
-        padding: 2%;
+        padding: 2rem;
         height: 100%;
+        min-height: auto;
     }
 
     .desktop_mensaje_imagen {
@@ -233,6 +249,10 @@ main {
         gap: 2.5rem;
         flex-direction: column;
         align-items: center;
+    }
+
+    .desktop_contenido_botones{
+        flex-direction: column;
     }
 
     .header_menu_logo{
